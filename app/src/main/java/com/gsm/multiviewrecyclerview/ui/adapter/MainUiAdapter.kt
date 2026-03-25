@@ -1,6 +1,5 @@
 package com.gsm.multiviewrecyclerview.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -73,7 +72,7 @@ class MainUiAdapter : ListAdapter<UiModel, RecyclerView.ViewHolder>(DIFF_CALLBAC
         when (val item = getItem(position)) {
             is UiModel.Banner -> (holder as BannerViewHolder).bind(item.list)
             is UiModel.Categories -> (holder as CategoryViewHolder).bind(item.list)
-            is UiModel.Products -> (holder as ProductViewHolder).bind(item.product)
+            is UiModel.Products -> (holder as ProductViewHolder).bind(item.list)
         }
     }
 
@@ -106,15 +105,14 @@ class MainUiAdapter : ListAdapter<UiModel, RecyclerView.ViewHolder>(DIFF_CALLBAC
 
     class ProductViewHolder(val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("SetTextI18n")
-        fun bind(product: Product) {
+        fun bind(products: List<Product>) {
             binding.apply {
-                tvTitle.text = product.title
-
-                val discountedPrice = product.price * product.discountPercentage / 100
-                val finalProductPrice = product.price - discountedPrice
-                val formattedProductPrice = "%.2f".format(finalProductPrice)
-                tvPrice.text = "$ $formattedProductPrice"
+                binding.rvProducts.apply {
+                    val bannerAdapter = BannerAdapter()
+                    setHasFixedSize(true)
+                    adapter = bannerAdapter
+                    bannerAdapter.submitList(products)
+                }
             }
         }
     }

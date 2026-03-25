@@ -18,9 +18,7 @@ class ProductRepository @Inject constructor(private val networkService: NetworkS
 
             uiList.add(UiModel.Banner(banners))
             uiList.add(UiModel.Categories(categories))
-            products.forEach {
-                uiList.add(UiModel.Products(it))
-            }
+            uiList.add(UiModel.Products(products))
 
             emit(uiList)
         }
