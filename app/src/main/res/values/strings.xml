@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MultiViewRecyclerView</string>
+    <string name="banner_image">Banner Image</string>
+</resources>
