@@ -9,6 +9,7 @@ kotlinxCoroutinesCore = "1.10.2"
 material = "1.13.0"
 activity = "1.13.0"
 constraintlayout = "2.2.1"
+coreSplashscreen = "1.2.0"
 ksp = "2.3.6"
 
 # Lifecycle / ViewModel
@@ -35,6 +36,7 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 
 # Retrofit & OkHttp
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
