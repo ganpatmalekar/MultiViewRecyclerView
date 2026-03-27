@@ -11,7 +11,7 @@ A modern Android application demonstrating a complex, multi-type RecyclerView im
 ## 📸 Screenshots
 |                                 Main Screen                                  |                            Product Detail Screen                             |
 |:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| <img alt="Main Screen" height="400" src="./screenshots/1.jpeg" width="200"/> | <img alt="Main Screen" height="400" src="./screenshots/2.jpeg" width="200"/> |
+| <img alt="Main Screen" height="480" src="./screenshots/1.jpeg" width="250"/> | <img alt="Main Screen" height="480" src="./screenshots/2.jpeg" width="250"/> |
 
 ## 🛠 Tech Stack
 - **Language**: [Kotlin](https://kotlinlang.org/)
