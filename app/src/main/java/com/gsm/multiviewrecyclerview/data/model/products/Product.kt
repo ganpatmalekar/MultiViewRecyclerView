@@ -1,8 +1,12 @@
 package com.gsm.multiviewrecyclerview.data.model.products
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Product(
     val availabilityStatus: String,
-    val brand: String,
+    val brand: String?,
     val category: String,
     val description: String,
     val discountPercentage: Double,
@@ -22,4 +26,4 @@ data class Product(
     val title: String,
     val warrantyInformation: String,
     val weight: Int
-)
+): Parcelable

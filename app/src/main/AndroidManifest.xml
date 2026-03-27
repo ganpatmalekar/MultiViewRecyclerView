@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MultiViewRecyclerView">
         <activity
+            android:name=".ui.ProductDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/Theme.MultiViewRecyclerView.Splash"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.MultiViewRecyclerView.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

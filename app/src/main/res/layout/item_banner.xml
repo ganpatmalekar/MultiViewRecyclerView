@@ -7,7 +7,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-    app:contentPadding="10dp">
+    app:contentPadding="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,6 +21,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDiscountPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_textview"
+            android:backgroundTint="#FF0000"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10% OFF" />
 
         <TextView
             android:id="@+id/tvBrand"
@@ -57,7 +72,6 @@
             android:id="@+id/tvRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:gravity="center_vertical"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -90,7 +104,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="4dp"
             android:textColor="@color/black"
-            android:textSize="13sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/tvTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvRating"
             tools:text="$9.75" />

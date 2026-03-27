@@ -9,9 +9,9 @@ A modern Android application demonstrating a complex, multi-type RecyclerView im
 - **Nested Horizontal Scrolling**: Implements horizontal scrolling for Banners and Categories within a vertical list.
 
 ## 📸 Screenshots
-|                                 Main Screen                                 |
-|:---------------------------------------------------------------------------:|
-| <img alt="Main Screen" height="400" src="./screenshots/1.png" width="200"/> |
+|                                 Main Screen                                  |                            Product Detail Screen                             |
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
+| <img alt="Main Screen" height="400" src="./screenshots/1.jpeg" width="200"/> | <img alt="Main Screen" height="400" src="./screenshots/2.jpeg" width="200"/> |
 
 ## 🛠 Tech Stack
 - **Language**: [Kotlin](https://kotlinlang.org/)
@@ -19,6 +19,7 @@ A modern Android application demonstrating a complex, multi-type RecyclerView im
 - **Networking**: [Retrofit](https://square.github.io/retrofit/) & [Gson](https://github.com/google/gson)
 - **Image Loading**: [Glide](https://github.com/bumptech/glide)
 - **Asynchronous Programming**: [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) & [Flow](https://developer.android.com/kotlin/flow)
+- **Kotlin-Parcelize**: To pass custom objects between Android components like Activities or Fragments.
 - **Jetpack Components**:
   - ViewModel
   - ViewBinding

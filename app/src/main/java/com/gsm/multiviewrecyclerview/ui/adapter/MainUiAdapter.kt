@@ -12,8 +12,10 @@ import com.gsm.multiviewrecyclerview.data.model.products.Product
 import com.gsm.multiviewrecyclerview.databinding.ItemBannerListBinding
 import com.gsm.multiviewrecyclerview.databinding.ItemCategoryListBinding
 import com.gsm.multiviewrecyclerview.databinding.ItemProductBinding
+import com.gsm.multiviewrecyclerview.ui.base.ItemClickListener
 
 class MainUiAdapter : ListAdapter<UiModel, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
+    lateinit var itemClickListener: ItemClickListener<Product>
     companion object {
         const val VIEW_BANNER = 1
         const val VIEW_CATEGORY = 2
@@ -70,20 +72,21 @@ class MainUiAdapter : ListAdapter<UiModel, RecyclerView.ViewHolder>(DIFF_CALLBAC
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (val item = getItem(position)) {
-            is UiModel.Banner -> (holder as BannerViewHolder).bind(item.list)
+            is UiModel.Banner -> (holder as BannerViewHolder).bind(item.list, itemClickListener)
             is UiModel.Categories -> (holder as CategoryViewHolder).bind(item.list)
-            is UiModel.Products -> (holder as ProductViewHolder).bind(item.list)
+            is UiModel.Products -> (holder as ProductViewHolder).bind(item.list, itemClickListener)
         }
     }
 
     class BannerViewHolder(val binding: ItemBannerListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(list: List<Product>) {
+        fun bind(list: List<Product>, itemClickListener: ItemClickListener<Product>) {
             binding.rvBanner.apply {
                 val bannerAdapter = BannerAdapter()
                 setHasFixedSize(true)
                 adapter = bannerAdapter
                 bannerAdapter.submitList(list)
+                bannerAdapter.itemClickListener = itemClickListener
             }
         }
     }
@@ -105,13 +108,14 @@ class MainUiAdapter : ListAdapter<UiModel, RecyclerView.ViewHolder>(DIFF_CALLBAC
 
     class ProductViewHolder(val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(products: List<Product>) {
+        fun bind(products: List<Product>, itemClickListener: ItemClickListener<Product>) {
             binding.apply {
                 binding.rvProducts.apply {
                     val bannerAdapter = BannerAdapter()
                     setHasFixedSize(true)
                     adapter = bannerAdapter
                     bannerAdapter.submitList(products)
+                    bannerAdapter.itemClickListener = itemClickListener
                 }
             }
         }

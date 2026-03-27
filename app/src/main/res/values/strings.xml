@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">MultiViewRecyclerView</string>
     <string name="banner_image">Banner Image</string>
+    <string name="back_navigation">Back navigation</string>
+    <string name="product_image">Product image</string>
+    <string name="delivery_services"><![CDATA[Delivery & Services]]></string>
+    <string name="shipping">Shipping</string>
+    <string name="product_details">Product Details</string>
+    <string name="sku">SKU</string>
+    <string name="weight">Weight</string>
+    <string name="min_order_quantity">Min. Order Quantity</string>
+    <string name="return_policy">Return Policy</string>
+    <string name="warranty">Warranty</string>
+    <string name="stock_available">Stock Available</string>
+    <string name="free_shipping">Free Shipping</string>
+    <string name="tags">Tags</string>
+    <string name="see_all">See all</string>
+    <string name="off_percentage">%1$.2f%% OFF</string>
+    <string name="review_count">%1$d Reviews</string>
+    <string name="discounted_price">$%1$s</string>
+    <string name="original_price">$%1$.2f</string>
+    <string name="units_available">%1$d units available</string>
+    <string name="weight_value">%1$dg</string>
+    <string name="units">%1$d units</string>
+    <string name="total_reviews">Reviews (%1$d)</string>
+    <string name="add_favorite">Add favorite</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="e_commerce_product_application">E-Commerce Product Application</string>
 </resources>

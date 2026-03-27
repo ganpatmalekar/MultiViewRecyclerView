@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gsm.multiviewrecyclerview.data.model.products.Product
 import com.gsm.multiviewrecyclerview.databinding.ItemBannerBinding
+import com.gsm.multiviewrecyclerview.ui.base.ItemClickListener
 
 class BannerAdapter : ListAdapter<Product, BannerAdapter.BannerViewHolder>(DIFF_CALLBACK) {
+
+    lateinit var itemClickListener: ItemClickListener<Product>
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Product>() {
@@ -38,30 +41,35 @@ class BannerAdapter : ListAdapter<Product, BannerAdapter.BannerViewHolder>(DIFF_
     override fun onBindViewHolder(
         holder: BannerViewHolder, position: Int
     ) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), itemClickListener)
     }
 
     class BannerViewHolder(val binding: ItemBannerBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
-        fun bind(product: Product) {
+        fun bind(product: Product, itemClickListener: ItemClickListener<Product>) {
             binding.apply {
+                tvDiscountPercentage.text = "${product.discountPercentage}% OFF"
                 tvTitle.text = product.title
-                tvBrand.text = product.brand
+                tvBrand.text = if (!product.brand.isNullOrBlank()) product.brand else "NA"
                 tvRating.text = product.rating.toString()
-                tvCategory.text = product.category
+                tvCategory.text = product.category.replaceFirstChar { it.uppercaseChar() }
                 tvStock.text = product.availabilityStatus
 
                 val discountedPrice = product.price * product.discountPercentage / 100
                 val finalProductPrice = product.price - discountedPrice
                 val formattedProductPrice = "%.2f".format(finalProductPrice)
-                tvDiscountedPrice.text = "$ $formattedProductPrice"
-                tvPrice.text = "$ ${product.price}"
+                tvDiscountedPrice.text = "$$formattedProductPrice"
+                tvPrice.text = "$${product.price}"
                 tvPrice.paintFlags = tvPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
 
                 Glide.with(ivBanner.context)
                     .load(product.thumbnail)
                     .into(ivBanner)
+
+                root.setOnClickListener {
+                    itemClickListener.invoke(product)
+                }
             }
         }
     }

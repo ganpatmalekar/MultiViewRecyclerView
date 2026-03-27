@@ -1,5 +1,6 @@
 package com.gsm.multiviewrecyclerview.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -18,6 +19,8 @@ import com.gsm.multiviewrecyclerview.R
 import com.gsm.multiviewrecyclerview.databinding.ActivityMainBinding
 import com.gsm.multiviewrecyclerview.ui.adapter.MainUiAdapter
 import com.gsm.multiviewrecyclerview.ui.base.UiState
+import com.gsm.multiviewrecyclerview.ui.viewmodel.ProductViewModel
+import com.gsm.multiviewrecyclerview.utils.AppConstants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -51,10 +54,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
+        binding.toolbarLayout.apply {
+            tvToolbarTitle.text = getString(R.string.e_commerce_product_application)
+        }
         binding.rvMain.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
             adapter = mainUiAdapter
+
+            mainUiAdapter.itemClickListener = { product ->
+                startActivity(
+                    Intent(this@MainActivity, ProductDetailsActivity::class.java).apply {
+                        putExtra(AppConstants.PRODUCT_DATA, product)
+                    }
+                )
+            }
         }
     }
 

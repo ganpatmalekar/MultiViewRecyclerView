@@ -1,4 +1,4 @@
-package com.gsm.multiviewrecyclerview.ui
+package com.gsm.multiviewrecyclerview.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
